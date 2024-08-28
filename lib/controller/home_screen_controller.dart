@@ -35,9 +35,11 @@ class HomeScreenController with ChangeNotifier
      "phone" : "2134543454"
    };
 
-  void showInUI()
-  {
-    name;
-    notifyListeners();
-  }
+  // void showInUI()
+  // {
+  //   name;
+  //   notifyListeners();
+  // }
+
 }
+

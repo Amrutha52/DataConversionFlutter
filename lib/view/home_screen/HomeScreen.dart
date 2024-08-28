@@ -58,7 +58,9 @@ class _HomeScreenState extends State<HomeScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(homeProvider.name)
+            Text(homeProvider.details["name"]),
+            Text(homeProvider.details["place"]),
+            Text(homeProvider.details["phone"]),
           ],
         ),
       ),
