@@ -49,6 +49,11 @@ class HomeScreen extends StatefulWidget
 class _HomeScreenState extends State<HomeScreen>
 {
   @override
+  void initState() {
+    Provider.of<HomeScreenController>(context, listen: false).convertToModel();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context)
   {
     final homeProvider = Provider.of<HomeScreenController>(context);
@@ -56,12 +61,21 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(homeProvider.details["name"]),
-            Text(homeProvider.details["place"]),
-            Text(homeProvider.details["phone"]),
-          ],
+          children: List.generate(homeProvider.detailsObj.length,
+              (index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.red,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(homeProvider.detailsObj[index].name ?? "null"),
+                      Text(homeProvider.detailsObj[index].place ?? "null"),
+                      Text(homeProvider.detailsObj[index].phone ?? "null"),
+                    ],
+                  ),
+                ),
+              ),)
         ),
       ),
     );
